@@ -4,6 +4,7 @@ import { TheCatAPI } from '@thatapicompany/thecatapi';
 
 function App() {
   const [catImageUrl, setCatImageUrl] = useState('');
+  const [catBreed, setCatBreed] = useState('');
   const theCatAPI = new TheCatAPI("live_LezWYEbLl1lzeB1AOaz2T0zWRXFTvgOrK0iaoxV2dTz1UU05SBnbtfq1HW4MPhx5");
 
   useEffect(() => {
@@ -13,6 +14,7 @@ function App() {
       });
       if (image) {
         setCatImageUrl(image.url);
+        setCatBreed(image.breeds[0]?.name);
       }
     };
 
@@ -25,13 +27,15 @@ function App() {
     });
     if (image) {
       setCatImageUrl(image.url);
+      setCatBreed(image.breeds[0]?.name);
     }
   };
 
   return (
     <>
       <div className="App">
-        <h1>Random Cat</h1>
+        <h1>Ranom Cats</h1>
+        <h2>{catBreed}</h2>
         {catImageUrl && (
           <img src={catImageUrl} alt="Random Cat" style={{ width: '300px', borderRadius: '10px' }} />
         )}
