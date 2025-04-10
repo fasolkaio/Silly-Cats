@@ -4,7 +4,7 @@ import { TheCatAPI } from '@thatapicompany/thecatapi';
 
 function App() {
   const [catImageUrl, setCatImageUrl] = useState('');
-  const [catBreed, setCatBreed] = useState('');
+  const [catBreed, setCatBreed] = useState('Unknown Breed');
   const theCatAPI = new TheCatAPI("live_LezWYEbLl1lzeB1AOaz2T0zWRXFTvgOrK0iaoxV2dTz1UU05SBnbtfq1HW4MPhx5");
 
   useEffect(() => {
@@ -12,9 +12,11 @@ function App() {
       const image = await theCatAPI.images.getRandomImage({
         hasBreeds: true,
       });
-      if (image) {
+      if (image && image.breeds && image.breeds.length > 0) {
         setCatImageUrl(image.url);
-        setCatBreed(image.breeds[0]?.name);
+        setCatBreed(image.breeds[0]?.name || 'Unknown Breed');
+      } else {
+        setCatBreed('Unknown Breed');
       }
     };
 
@@ -25,16 +27,18 @@ function App() {
     const image = await theCatAPI.images.getRandomImage({
       hasBreeds: true,
     });
-    if (image) {
+    if (image && image.breeds && image.breeds.length > 0) {
       setCatImageUrl(image.url);
-      setCatBreed(image.breeds[0]?.name);
+      setCatBreed(image.breeds[0]?.name || 'Unknown Breed');
+    } else {
+      setCatBreed('Unknown Breed');
     }
   };
 
   return (
     <>
       <div className="App">
-        <h1>Ranom Cats</h1>
+        <h1>Random Cats</h1>
         <h2>{catBreed}</h2>
         {catImageUrl && (
           <img src={catImageUrl} alt="Random Cat" style={{ width: '300px', borderRadius: '10px' }} />
@@ -44,7 +48,6 @@ function App() {
         <button onClick={changeCat}>Change cat</button>
       </div>
     </>
-    
   );
 }
 
