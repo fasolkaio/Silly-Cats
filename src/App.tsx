@@ -11,7 +11,9 @@ function App() {
       const image = await theCatAPI.images.getRandomImage({
         hasBreeds: true,
       });
-      setCatImageUrl(image.url);
+      if (image) {
+        setCatImageUrl(image.url);
+      }
     };
 
     fetchCat();
@@ -21,7 +23,9 @@ function App() {
     const image = await theCatAPI.images.getRandomImage({
       hasBreeds: true,
     });
-    setCatImageUrl(image.url); // Оновлюємо зображення
+    if (image) {
+      setCatImageUrl(image.url);
+    }
   };
 
   return (
