@@ -21,8 +21,7 @@ You can access the live site here: [https://silly-cats.vercel.app/](https://sill
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/simple-cat-api-site.git
-cd simple-cat-api-site
+git clone https://github.com/fasolkaio/Silly-Cats.git
 ```
 
 ### 2. Install dependencies
