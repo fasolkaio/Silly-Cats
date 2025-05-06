@@ -1,54 +1,44 @@
-# React + TypeScript + Vite
+# Simple Cat API Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple website that fetches and displays random cat images using the [Cat API](https://thecatapi.com/). The project is built with **React** and **Vite** for the frontend and deployed on **Vercel**.
 
-Currently, two official plugins are available:
+You can access the live site here: [https://silly-cats.vercel.app/](https://silly-cats.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## Expanding the ESLint configuration
+- **Frontend**: React, TypeScript, Vite
+- **API**: TheCatAPI for fetching random cat images
+- **Deployment**: Vercel
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Fetches random cat images from TheCatAPI.
+- Displays a new image each time you click the "Get Random Cat" button.
+- Fully responsive design for both desktop and mobile.
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/simple-cat-api-site.git
+cd simple-cat-api-site
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Make sure you have Node.js and npm installed. Then, in the root directory of the project, run:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+npm install
 ```
+
+### 3. Run the Development Server
+
+After all dependencies are installed and set up, you can start the development server:
+
+```bash
+npm run dev
+```
+
+This will launch the site at http://localhost:5173 on your local machine. You should be able to see the website in your browser, and when you click the "Get Random Cat" button, it will display a random cat image.
